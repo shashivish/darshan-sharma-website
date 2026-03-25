@@ -16,7 +16,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
         >
-          Welcome to Bright Minds Tuitions
+          Welcome to New Era Tutorials
         </motion.p>
 
         <motion.h1

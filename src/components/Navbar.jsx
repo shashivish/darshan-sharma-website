@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { useActiveSection } from '../hooks/useActiveSection'
 
@@ -8,12 +9,15 @@ const navLinks = [
   { label: 'Classes', id: 'classes' },
   { label: 'Schedule', id: 'schedule' },
   { label: 'Fees', id: 'fees' },
+  { label: 'FAQ', id: 'faq' },
   { label: 'Contact', id: 'contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const active = useActiveSection(navLinks.map((l) => l.id))
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -21,13 +25,13 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm relative">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         <button
           onClick={() => scrollTo('home')}
           className="font-heading text-xl font-bold text-primary"
         >
-          Bright Minds Tuitions
+          New Era Tutorials
         </button>
 
         {/* Desktop links */}
@@ -57,6 +61,12 @@ export default function Navbar() {
           {open ? <HiX /> : <HiMenu />}
         </button>
       </div>
+
+      {/* Scroll progress bar */}
+      <motion.div
+        style={{ scaleX }}
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent origin-left"
+      />
 
       {/* Mobile menu */}
       {open && (

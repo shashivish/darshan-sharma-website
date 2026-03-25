@@ -7,9 +7,11 @@ import Subjects from './components/Subjects'
 import Schedule from './components/Schedule'
 import Fees from './components/Fees'
 import Testimonials from './components/Testimonials'
+import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import BackToTop from './components/BackToTop'
 
 function App() {
   return (
@@ -22,9 +24,11 @@ function App() {
       <Schedule />
       <Fees />
       <Testimonials />
+      <FAQ />
       <Contact />
       <Footer />
       <WhatsAppButton />
+      <BackToTop />
     </div>
   )
 }

@@ -3,17 +3,17 @@ import { FaStar } from 'react-icons/fa'
 
 const testimonials = [
   {
-    quote: "Mrs. Sharma's patient teaching style helped my daughter improve her Maths score from 55% to 92% in just one term. Highly recommended!",
+    quote: "Mr. Sharma's patient teaching style helped my daughter improve her Maths score from 55% to 92% in just one term. Highly recommended!",
     name: 'Priya Agarwal',
     student: 'Parent of Class 9 student',
   },
   {
-    quote: 'My son struggled with Science concepts but after joining Bright Minds, he now loves the subject. The notes and practice papers are excellent.',
+    quote: 'My son struggled with Science concepts but after joining New Era Tutorials, he now loves the subject. The notes and practice papers are excellent.',
     name: 'Rajesh Mehta',
     student: 'Parent of Class 7 student',
   },
   {
-    quote: 'Small batches mean my child actually gets attention. No more getting lost in a crowd of 30 students. Mrs. Sharma knows exactly where each student stands.',
+    quote: 'Small batches mean my child actually gets attention. No more getting lost in a crowd of 30 students. Mr. Sharma knows exactly where each student stands.',
     name: 'Sunita Gupta',
     student: 'Parent of Class 5 student',
   },

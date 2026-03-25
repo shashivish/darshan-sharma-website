@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Classes', id: 'classes' },
   { label: 'Schedule', id: 'schedule' },
   { label: 'Fees', id: 'fees' },
+  { label: 'FAQ', id: 'faq' },
   { label: 'Contact', id: 'contact' },
 ]
 
@@ -17,7 +18,7 @@ export default function Footer() {
     <footer className="bg-primary text-white py-10 px-4">
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-8">
         <div>
-          <p className="font-heading text-xl font-bold mb-2">Bright Minds Tuitions</p>
+          <p className="font-heading text-xl font-bold mb-2">New Era Tutorials</p>
           <p className="text-blue-200 text-sm">Expert tuitions for Class 5–10. In-person and online.</p>
         </div>
 
@@ -41,7 +42,7 @@ export default function Footer() {
           <p className="font-semibold text-sm mb-3 uppercase tracking-widest text-blue-300">Follow Us</p>
           <div className="flex gap-4">
             <a
-              href="https://wa.me/919320996083"
+              href="https://wa.me/919320996083?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20tuitions%20for%20my%20child."
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -61,7 +62,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-blue-800 pt-6 text-center text-blue-300 text-sm">
-        © {new Date().getFullYear()} Bright Minds Tuitions. All rights reserved.
+        © {new Date().getFullYear()} New Era Tutorials. All rights reserved.
       </div>
     </footer>
   )

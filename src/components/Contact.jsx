@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import { FiCheckCircle } from 'react-icons/fi'
 
 const initialForm = { name: '', phone: '', studentClass: '', subject: '', message: '' }
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
-  const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState({})
+  const [toast, setToast] = useState(false)
 
   const validate = () => {
     const e = {}
@@ -21,9 +22,10 @@ export default function Contact() {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
-    setSubmitted(true)
     setForm(initialForm)
     setErrors({})
+    setToast(true)
+    setTimeout(() => setToast(false), 4000)
   }
 
   const handleChange = (e) => {
@@ -53,20 +55,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {submitted ? (
-              <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-                <p className="text-3xl mb-3">✅</p>
-                <h3 className="font-heading text-xl text-primary font-semibold mb-2">Thank you!</h3>
-                <p className="text-muted text-sm">We'll get back to you within 24 hours.</p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 text-accent text-sm underline"
-                >
-                  Send another enquiry
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-md p-4 sm:p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="bg-card rounded-2xl shadow-md p-4 sm:p-6 space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-[#2c2c2c] mb-1">Full Name *</label>
                   <input
@@ -126,13 +115,12 @@ export default function Contact() {
                   />
                 </div>
                 <button
-                  type="submit"
-                  className="w-full bg-primary hover:bg-[#1e4a72] text-white font-semibold py-3 rounded-full transition-colors"
-                >
-                  Send Enquiry
-                </button>
-              </form>
-            )}
+                type="submit"
+                className="w-full bg-primary hover:bg-[#1e4a72] text-white font-semibold py-3 rounded-full transition-colors"
+              >
+                Send Enquiry
+              </button>
+            </form>
           </motion.div>
 
           {/* Info + Map */}
@@ -155,7 +143,7 @@ export default function Contact() {
                 <FaEnvelope className="text-accent text-lg" />
                 <div>
                   <p className="text-xs text-muted">Email</p>
-                  <p className="font-medium text-sm">brightminds.tuitions@gmail.com</p>
+                  <p className="font-medium text-sm">newera.tutorials@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -183,6 +171,22 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
+
+      {/* Toast notification */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.35 }}
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-primary text-white px-5 py-3 rounded-full shadow-xl text-sm font-medium"
+          >
+            <FiCheckCircle className="text-green-400 text-lg shrink-0" />
+            Enquiry sent! We'll get back to you within 24 hours.
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
