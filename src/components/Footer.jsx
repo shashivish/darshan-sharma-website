@@ -41,7 +41,7 @@ export default function Footer() {
           <p className="font-semibold text-sm mb-3 uppercase tracking-widest text-blue-300">Follow Us</p>
           <div className="flex gap-4">
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919320996083"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"

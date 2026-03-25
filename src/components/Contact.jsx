@@ -148,7 +148,7 @@ export default function Contact() {
                 <FaPhone className="text-accent text-lg" />
                 <div>
                   <p className="text-xs text-muted">Phone</p>
-                  <p className="font-medium text-sm">+91 98765 43210</p>
+                  <p className="font-medium text-sm">+91 93209 96083</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
